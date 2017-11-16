@@ -2,7 +2,7 @@ FROM golang:1.9 as goimage
 ENV SRC=/go/src/
 RUN mkdir -p /go/src/
 WORKDIR /go/src/go_docker
-RUN git clone -b <Specify-branchname> — single-branch <Github HTTP Url> /go/src/go_docker/ \
+RUN git clone -b master — single-branch https://github.com/dfucci/go-ms.git  /go/src/go_docker/ \
 && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
 go build -o bin/go_docker
 FROM alpine:3.6 as baseimagealp
